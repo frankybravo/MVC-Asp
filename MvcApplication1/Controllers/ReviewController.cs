@@ -1,11 +1,11 @@
-﻿using MvcApplication1.Models;
+﻿using MvcAsp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MvcApplication1.Controllers
+namespace MvcAsp.Controllers
 {
     public class ReviewController : Controller
     {

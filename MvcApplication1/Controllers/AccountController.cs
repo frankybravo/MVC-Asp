@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using MvcApplication1.Filters;
-using MvcApplication1.Models;
+using MvcAsp.Filters;
+using MvcAsp.Models;
 
-namespace MvcApplication1.Controllers
+namespace MvcAsp.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
@@ -63,7 +63,7 @@ namespace MvcApplication1.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View();// change
         }
 
         //
