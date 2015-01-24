@@ -17,6 +17,15 @@
 
     <fieldset>
         <legend>Log in Form</legend>
+        <select>
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+
+        </select>
+
+        @Html.TextBoxFor(m => m.UserName)
+
         <ol>
             <li>
                 @Html.LabelFor(m => m.UserName)
