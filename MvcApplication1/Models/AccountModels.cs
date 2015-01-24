@@ -26,7 +26,7 @@ namespace MvcAsp.Models
         public int UserId { get; set; }
         public string UserName { get; set; }
 
-        
+       
         
     }   
 
@@ -71,6 +71,9 @@ namespace MvcAsp.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        [Display(Name = "User Locked?")]
+        public bool UserLocked { get; set; }
     }
 
     public class RegisterModel

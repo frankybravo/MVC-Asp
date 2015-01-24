@@ -313,6 +313,8 @@
     <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Song\Index.cshtml" />
     <Content Include="Views\TrackView.cshtml" />
+    <Content Include="Views\Track\TrackView.cshtml" />
+    <Content Include="Views\Track\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

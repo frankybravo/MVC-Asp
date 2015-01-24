@@ -1,4 +1,4 @@
-﻿@model MvcApplication1.Models.LoginModel
+﻿@model MvcAsp.Models.LoginModel
 
 @{
     ViewBag.Title = "Log in";
@@ -10,7 +10,8 @@
 
 <section id="loginForm">
 <h2>Use a local account to log into.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) 
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -22,6 +23,12 @@
                 @Html.TextBoxFor(m => m.UserName)
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
+            <li>
+                @Html.LabelFor(m => m.UserLocked)
+                @Html.CheckBoxFor(m => m.UserLocked)
+                @Html.ValidationMessageFor(m => m.UserLocked)
+            </li>
+
             <li>
                 @Html.LabelFor(m => m.Password)
                 @Html.PasswordFor(m => m.Password)
