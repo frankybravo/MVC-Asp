@@ -73,7 +73,8 @@ namespace MvcAsp.Models
         public bool RememberMe { get; set; }
 
         [Display(Name = "User Locked?")]
-        public bool UserLocked { get; set; }
+        public bool UserLocked { get; set
+            ; }
     }
 
     public class RegisterModel

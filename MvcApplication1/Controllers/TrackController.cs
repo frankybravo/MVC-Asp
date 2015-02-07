@@ -13,6 +13,9 @@ namespace MvcAsp.Controllers
 
         public ActionResult Index()
         {
+
+            ViewBag.text1 = "one";
+            ViewBag.text2 = "two";
             return View();
         }
 
