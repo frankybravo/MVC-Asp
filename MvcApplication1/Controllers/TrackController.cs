@@ -1,30 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MvcAsp.Models;
+using MvcAsp.FirstDBModel;
 
 namespace MvcAsp.Controllers
 {
     public class TrackController : Controller
     {
+        private Context db = new Context();
+
         //
         // GET: /Track/
 
         public ActionResult Index()
         {
-
-            ViewBag.text1 = "one";
-            ViewBag.text2 = "two";
-            return View();
+            return View(db.TRACKs.ToList());
         }
 
         //
         // GET: /Track/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(int id = 0)
         {
-            return View();
+            TRACK track = db.TRACKs.Find(id);
+            if (track == null)
+            {
+                return HttpNotFound();
+            }
+            return View(track);
         }
 
         //
@@ -39,70 +47,78 @@ namespace MvcAsp.Controllers
         // POST: /Track/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(TRACK track)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.TRACKs.Add(track);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(track);
         }
 
         //
         // GET: /Track/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
-            return View();
+            TRACK track = db.TRACKs.Find(id);
+            if (track == null)
+            {
+                return HttpNotFound();
+            }
+            return View(track);
         }
 
         //
         // POST: /Track/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(TRACK track)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(track).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(track);
         }
 
         //
         // GET: /Track/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
-            return View();
+            TRACK track = db.TRACKs.Find(id);
+            if (track == null)
+            {
+                return HttpNotFound();
+            }
+            return View(track);
         }
 
         //
         // POST: /Track/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            TRACK track = db.TRACKs.Find(id);
+            db.TRACKs.Remove(track);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

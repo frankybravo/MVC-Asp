@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link rel="stylesheet" type="text/css" href="~/bootstrap.css" />
+</head>
+
+<body>
+
+<div id="page">
+	<div id="header">
+			<a href="#"><h1>CoolBlack</h1></a>
+			<div class="description">Website Template Number #39</div>
+	</div>
+	
+	<div id="menulinks">
+	</div>
+	
+	
+	<div id="mainarea">
+	<div id="contentarea">
+		<h2>WELCOME</h2>
+		<div class="content">
+	    	</div>
+		
+		<div class="content">
+		</div>
+	</div>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+	
+	<div id="footer"></div>
+
+</body>
+
+</html>
